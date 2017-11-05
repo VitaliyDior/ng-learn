@@ -35,7 +35,11 @@
 </app-timer>
 
 <div *ngIf="gameOver">
-  <app-word *ngFor="let word of history" [word]="word.word" [guessed]="word.guessed"></app-word>
+  <app-word *ngFor="let word of history; trackBy:trackByWord"
+            [word]="word.word"
+            [guessed]="word.guessed"
+            (played)="onHistoryFix($event)"
+  ></app-word>
   <div>GAME OVER</div>
 </div>
 
