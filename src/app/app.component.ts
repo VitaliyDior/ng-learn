@@ -40,10 +40,9 @@ export class AppComponent {
     return this.vocabulary[this.wordId++];
   }
   onHistoryFix(wordToFix) {
-      this.history = this.history.map((wordFromHistory) => {
+      this.history.map((wordFromHistory) => {
           if (wordFromHistory.word === wordToFix.word) {
               wordFromHistory.guessed = !wordFromHistory.guessed;
-              return wordToFix;
           }
           return wordFromHistory;
       });
